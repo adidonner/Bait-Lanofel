@@ -23,10 +23,10 @@ public class AppService {
 	@Autowired
 	private MediaRepo mediaRepo;
 
-	public Media purchaseMedia(int friendId, int mediaId) throws Exception {
+	public Media addMedia(int friendId, int mediaId) throws MediasException {
 		Optional<Friend> optFriend = Optional.of(friendRepo.findById(friendId)
 				.orElseThrow(() -> new FriendsException(
-						"purchaseMedia faild - friendId: " + friendId + "not found")));
+						"add Media faild - friendId: " + friendId + "not found")));
 		Optional<Media> optMedia = Optional.of(mediaRepo.findById(mediaId)
 				.orElseThrow(() -> new MediasException(
 						"purchaseMedia faild - mediaId: " + mediaId + "not found")));
