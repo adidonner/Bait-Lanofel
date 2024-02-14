@@ -78,6 +78,7 @@ public class Casualty {
 		if (this.medias == null) {
 			this.medias = new ArrayList<>();
 		}
+//		media.setCasualty(this);
 		media.setCasualty(this);
 		medias.add(media);
 

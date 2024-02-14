@@ -11,6 +11,8 @@ import app.core.entities.Media.Category;
 
 public interface MediaRepo extends JpaRepository<Media, Integer> {
 
+	List<Media> findAllByFriendsAndCategory(Friend friend, Category category);
+
 //	boolean existsByTitle(String title);
 
 //	List<Media> findAllByFamilyIdAndCategory(int id, Category category);

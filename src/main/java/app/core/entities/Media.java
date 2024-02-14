@@ -42,6 +42,8 @@ public class Media {
 	@ManyToOne
 	@JoinColumn(name = "casualty_id")
 	private Casualty casualty;
+	
+//	private int casualtyId;
 
 	@Enumerated(EnumType.STRING)
 	private Category category;
@@ -71,5 +73,12 @@ public class Media {
 	public enum Category {
 		BABY, KID, PRIMERY_SCHOOL, HIGH_SCHOOL, ARMY_SERVICE, HIGH_EDUCATION, MARRIAGE, VACATIONS, HOLIDAYS, WORK, VOLUNTARY_WORK, GRADUATION, OTHER ; 
 	}
+	
+	private int sourceId;
+	private boolean mediaSourceFamily;
+	 
+//	public enum MediaSource{
+//		 FAMILY, FRIEND, OTHER;
+//	 }
 
 }

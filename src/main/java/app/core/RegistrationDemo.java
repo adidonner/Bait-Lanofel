@@ -2,6 +2,7 @@ package app.core;
 
 import java.time.LocalDate;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
@@ -15,7 +16,6 @@ import app.core.entities.Friend;
 import app.core.entities.Media;
 import app.core.entities.Media.Category;
 import app.core.services.AdminService;
-import app.core.services.AppService;
 import app.core.services.FamilyService;
 
 @Component
@@ -105,7 +105,7 @@ public class RegistrationDemo implements CommandLineRunner {
 
 		System.out.println("\n========== ADD MEDIA TO CASUALITY ==========");
 		Media media1 = ctx.getBean(Media.class);
-		media1.setCasualty(casualty1);
+//		media1.setCasualty(casualty1);
 		media1.setCategory(app.core.entities.Media.Category.BABY);
 		media1.setTitle("In the Tent");
 		media1.setDescription("Tent for 3 people: Father, Mom and the little baby");
@@ -116,10 +116,10 @@ public class RegistrationDemo implements CommandLineRunner {
 				"https://drive.google.com/file/d/1yoJGfztPQi65SO5CxfjK6b9KXyoWdnbV/view?usp=sharing");
 //		casualty1.addMedia(media1);
 //		System.out.println(media1);
-		familyService.addMediaToFamily(1, media1);
+		familyService.familyAddMedia(1, media1);
 
 		Media media2 = ctx.getBean(Media.class);
-		media2.setCasualty(casualty1);
+//		media2.setCasualty(casualty1);
 		media2.setCategory(Category.KID);
 		media2.setTitle("Sandwich");
 		media2.setDescription("eating his sandwich in kinder Garden");
@@ -127,12 +127,12 @@ public class RegistrationDemo implements CommandLineRunner {
 		media2.setMediaUploadedDate(LocalDate.of(2023, 12, 31));
 		media2.setAge(5);
 		media2.setImage("https://drive.google.com/file/d/1h3IPdtK9TG4cxjBj9KOHnRkmqSbPejXY/view?usp=sharing");
-		casualty1.addMedia(media2);		
+//		casualty1.addMedia(media2);		
 //		System.out.println(media2);
-		familyService.addMediaToFamily(1, media2);
+		familyService.familyAddMedia(1, media2);
 
 		Media media3 = ctx.getBean(Media.class);
-		media3.setCasualty(casualty2);
+//		media3.setCasualty(casualty2);
 		media3.setCategory(Category.HOLIDAYS);
 		media3.setTitle("Purim");
 		media3.setDescription("Purim costume in 2003");
@@ -140,9 +140,9 @@ public class RegistrationDemo implements CommandLineRunner {
 		media3.setMediaUploadedDate(LocalDate.of(2023, 12, 10));
 		media3.setAge(9);
 		media3.setImage("https://drive.google.com/file/d/1cDLLvOSmVJasJydLuuJmI43mD9HJldsp/view?usp=sharing");
-		casualty2.addMedia(media3);
+//		casualty2.addMedia(media3);
 		System.out.println("media3 " + media3);
-		familyService.addMediaToFamily(1, media3);
+		familyService.familyAddMedia(1, media3);
 		
 		System.out.println(casualty1.getMedias());
 

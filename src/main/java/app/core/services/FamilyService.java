@@ -24,10 +24,16 @@ public class FamilyService extends ClientService {
 	@Autowired
 	private MediaRepo mediaRepo;
 
-	public Media addMediaToFamily(int familyId, Media media) throws MediasException {
+//	public Media addMediaToFamily(int familyId, Media media) throws MediasException {
+	public Media familyAddMedia(int familyId, Media media) throws MediasException {
 		if (!this.mediaRepo.existsById(media.getId())) {
 			Family family = familyRepo.findById(familyId)
 					.orElseThrow(() -> new FamiliesException("Family id: " + familyId + " not found"));
+//			media.setMediaSource(MediaSource.FAMILY);
+			media.setMediaSourceFamily(true);
+			media.setSourceId(familyId);
+			media.setCasualty(family.getCasualty());
+			mediaRepo.save(media);
 			family.getCasualty().addMedia(media);
 			familyRepo.save(family);
 //			media.setFamily(family);
